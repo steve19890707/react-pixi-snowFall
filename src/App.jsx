@@ -62,15 +62,15 @@ const App = () => {
                 <li className="caption"> demo for christmas activity!!</li>
                 <li className="fifty">
                     <span>1. banner-1</span> 
-                    <img src="../dis/images/banner1.jpg" alt=""/>
+                    <img src="./dis/images/banner1.jpg" alt=""/>
                 </li>
                 <li className="fifty">
                     <span>1. banner-2</span> 
-                    <img src="../dis/images/banner3.jpg" alt=""/>
+                    <img src="./dis/images/banner3.jpg" alt=""/>
                 </li>
                 <li>
                     <span>1. banner-3</span> 
-                    <img src="../dis/images/banner2.jpg" alt=""/>
+                    <img src="./dis/images/banner2.jpg" alt=""/>
                 </li>
             </ul>
         </Main>
