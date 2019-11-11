@@ -32,7 +32,7 @@ const Canvas = (location) => {
     snowListOne.map((element,index) => {
         const Random = Math.floor(Math.random()*20);
         setTimeout(()=> {
-            let snowStyleOne = createSnow(element,50,50,(PixiApp.screen.width/4) * index, 0,'../dis/images/snow.png');
+            let snowStyleOne = createSnow(element,50,50,(PixiApp.screen.width/4) * index, 0,'./dis/images/snow.png');
             PixiApp.ticker.add((delta)=>{
                 snowStyleOne.x += (0.1*Random);
                 snowStyleOne.rotation += 0.05 * delta;
@@ -45,7 +45,7 @@ const Canvas = (location) => {
     snowListTwo.map((element,index) => {
         const Random = Math.floor(Math.random()*25);
         setTimeout(()=> {
-            let snowStyleTwo = createSnow(element,8,8,(PixiApp.screen.width/25) * index, 0,'../dis/images/white_snow.png');
+            let snowStyleTwo = createSnow(element,8,8,(PixiApp.screen.width/25) * index, 0,'./dis/images/white_snow.png');
             PixiApp.ticker.add(()=>{
                 snowStyleTwo.x += (0.1*Random);
                 if(snowStyleTwo.y > (window.innerHeight + snowStyleTwo.height/2)) { 
@@ -58,7 +58,7 @@ const Canvas = (location) => {
         snowListOne.map((element,index) => {
             const Random = Math.floor(Math.random()*20);
             setTimeout(()=> {
-                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'../dis/images/snow.png');
+                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'./dis/images/snow.png');
                 PixiApp.ticker.add((delta)=>{
                     snowStyleOne.x += (0.1*Random);
                     snowStyleOne.rotation += 0.05 * delta;
@@ -71,7 +71,7 @@ const Canvas = (location) => {
         snowListTwo.map((element,index) => {
             const Random = Math.floor(Math.random()*25);
             setTimeout(()=> {
-                let snowStyleTwo = createSnow(element,8,8,(PixiApp.screen.width/25) * index, 0,'../dis/images/white_snow.png');
+                let snowStyleTwo = createSnow(element,8,8,(PixiApp.screen.width/25) * index, 0,'./dis/images/white_snow.png');
                 PixiApp.ticker.add(()=>{
                     snowStyleTwo.x += (0.1*Random);
                     if(snowStyleTwo.y > (window.innerHeight + snowStyleTwo.height/2)) { 
@@ -86,7 +86,7 @@ const Canvas = (location) => {
         snowListOne.map((element,index) => {
             const Random = Math.floor(Math.random()*20);
             setTimeout(()=> {
-                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'../dis/images/snow.png');
+                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'./dis/images/snow.png');
                 PixiApp.ticker.add((delta)=>{
                     snowStyleOne.x -= (0.1*Random);
                     snowStyleOne.rotation -= 0.05 * delta;
@@ -99,7 +99,7 @@ const Canvas = (location) => {
         snowListTwo.map((element,index) => {
             const Random = Math.floor(Math.random()*25);
             setTimeout(()=> {
-                let snowStyleTwo = createSnow(element,10,10,(PixiApp.screen.width/25) * index, 0,'../dis/images/white_snow.png');
+                let snowStyleTwo = createSnow(element,10,10,(PixiApp.screen.width/25) * index, 0,'./dis/images/white_snow.png');
                 PixiApp.ticker.add(()=>{
                     snowStyleTwo.x -= (0.1*Random);
                     if(snowStyleTwo.y > (window.innerHeight + snowStyleTwo.height/2)) { 
@@ -113,7 +113,7 @@ const Canvas = (location) => {
         snowListOne.map((element,index) => {
             const Random = Math.floor(Math.random()*20);
             setTimeout(()=> {
-                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'../dis/images/snow.png');
+                let snowStyleOne = createSnow(element,35,35,(PixiApp.screen.width/4) * index, 0,'./dis/images/snow.png');
                 PixiApp.ticker.add((delta)=>{
                     snowStyleOne.x -= (0.1*Random);
                     snowStyleOne.rotation -= 0.05 * delta;
@@ -126,7 +126,7 @@ const Canvas = (location) => {
         snowListTwo.map((element,index) => {
             const Random = Math.floor(Math.random()*25);
             setTimeout(()=> {
-                let snowStyleTwo = createSnow(element,10,10,(PixiApp.screen.width/25) * index, 0,'../dis/images/white_snow.png');
+                let snowStyleTwo = createSnow(element,10,10,(PixiApp.screen.width/25) * index, 0,'./dis/images/white_snow.png');
                 PixiApp.ticker.add(()=>{
                     snowStyleTwo.x -= (0.1*Random);
                     if(snowStyleTwo.y > (window.innerHeight + snowStyleTwo.height/2)) { 
