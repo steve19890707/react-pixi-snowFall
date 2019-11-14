@@ -14,9 +14,9 @@ const Main = styled.main`
     position:relative;
     top:0;
     width:100%;
-    z-index:2;
-    width:1200px;
+    max-width:1200px;
     margin: 0 auto;
+    z-index:2;
     .fakearea {
         background:#fff; 
         border-radius:5px;
@@ -107,6 +107,69 @@ const Main = styled.main`
             }
         }
     }
+    .pageStyle {
+        width:100%;
+        margin:20px 0;
+        padding:30px;
+        background-color:#00bcd4;
+        border-radius:5px;
+        box-sizing:border-box;
+        .title {
+            color:#fff;
+            font-size:28px;
+            font-weight:bold;
+            padding-bottom:15px;
+            margin-bottom:15px;
+            border-bottom:1px solid #55ecff;
+        }
+        .list-area {
+            display:flex;
+            flex-wrap:wrap;
+            .list {
+                width:31.3333%;
+                margin:15px 3% 15px 0;
+                box-sizing:border-box;
+                padding:20px;
+                background-color:#0096a9;
+                border-radius:5px;
+                &:nth-child(3n) {
+                    margin:15px 0;
+                }
+                img {
+                    width:100%;
+                }
+                .caption {
+                    color:#fff;
+                    font-size:20px;
+                    padding-top:10px;
+                    border-top:1px solid #00bcd4; 
+                    margin-top:15px;
+                }
+            }
+        }
+        .pages {
+            text-align:center;
+            margin-top:15px;
+            .pageBtn {
+                display:inline-block;
+                padding:10px;
+                margin-right:10px;
+                border-radius:5px;
+                font-size:18px;
+                color:#000;
+                background-color:#fff;
+                outline:none;
+                transition:.2s;
+                cursor: pointer;
+                &:active {
+                    transform: scale(0.9,0.9);
+                }
+                &:last-child {
+                    margin-right:0;
+                }
+            }
+        }
+    }
 `
 const staticArrayList = [
     {
@@ -130,19 +193,139 @@ const staticArrayList = [
         phone:'0950-123456',
     },
 ]
+
+const pageStyleList = [
+    {
+        title:'njrgb',
+    },
+    {
+        title:'hgrh',
+    },
+    {
+        title:'jugrm',
+    },
+    {
+        title:'rwhwr',
+    },
+    {
+        title:'miopbns',
+    },
+    {
+        title:'miobtemk',
+    },
+    {
+        title:'mionbdf',
+    },
+    {
+        title:'incbx',
+    },
+    {
+        title:'bcsyiv',
+    },
+    {
+        title:'pjbfue',
+    },
+    {
+        title:'nyisv',
+    },
+    {
+        title:'okjfdni',
+    },
+    {
+        title:'mionbdf',
+    },
+    {
+        title:'incbx',
+    },
+    {
+        title:'bcsyiv',
+    },
+    {
+        title:'pjbfue',
+    },
+    {
+        title:'nyisv',
+    },
+    {
+        title:'okjfdni',
+    },
+    {
+        title:'mionbdf',
+    },
+    {
+        title:'incbx',
+    },
+    {
+        title:'bcsyiv',
+    },
+    {
+        title:'pjbfue',
+    },
+    {
+        title:'nyisv',
+    },
+    {
+        title:'okjfdni',
+    },
+    {
+        title:'mionbdf',
+    },
+    {
+        title:'incbx',
+    },
+    {
+        title:'bcsyiv',
+    },
+    {
+        title:'pjbfue',
+    },
+    {
+        title:'nyisv',
+    },
+]
+const creatList = (array) => {
+    return array.map((element,index)=>{
+        return (
+        <li key={index}>
+            <span>{element.name}</span> : <span>{element.phone}</span>
+        </li>
+        );
+    });
+}
+const creatImgList = (array = [], start, end) => {
+    return array.map((element,index)=>{
+        if(index >= start && index <= end) {
+            return (
+                <div key={index} className="list">
+                    <img src="./dis/images/banner1.jpg" alt=""/>
+                    <div className="caption">I'm image-{index+1}: {element.title}</div>
+                </div>
+                );
+        } else {
+            return null;
+        }
+    });
+}
+const creatPageBtn = (array = [], listNumber, setFun) => {
+    const totalBtnList = [];
+    const totalBtn = Math.ceil(array.length / (listNumber));
+    for(let i=0;i< totalBtn; i++){
+        totalBtnList.push(i);
+    }
+    return totalBtnList.map((element, index)=> {
+        const startNumber = index*(listNumber-1);
+        const endNumber = (index*(listNumber-1))+(listNumber-1);
+        return (
+            <button key={index} className="pageBtn"
+                onClick={()=>{setFun({start: startNumber, end: endNumber})}}
+            >{element+1}</button>
+        )
+    })
+}
 const App = () => {
     const [ staticProps, setStaticProps ] = useState(
         { staticList: [...staticArrayList] }
     )
-    const creatList = (array) => {
-        return array.map((element,index)=>{
-            return (
-            <li key={index}>
-                <span>{element.name}</span> : <span>{element.phone}</span>
-            </li>
-            );
-        });
-    }
     const serachValue = useRef(null);
     const pushValue = (traget,List) => {
         let updatList = [];
@@ -153,6 +336,7 @@ const App = () => {
         });
         traget !== '' ? setStaticProps({staticList:[...updatList]}) : setStaticProps({staticList:[...staticArrayList]})  
     }
+    const [pageShowNumber, setPageShowNumber] = useState({ start: 0, end: 8})
     return(
         <>
         <CssRest />
@@ -170,18 +354,11 @@ const App = () => {
                 <li className="serach-area">
                     <ol id="serach-area" >{creatList(staticProps.staticList)}</ol>
                 </li>
-                <li className="fifty">
-                    <span>1. banner-1</span> 
-                    <img src="./dis/images/banner1.jpg" alt=""/>
-                </li>
-                <li className="fifty">
-                    <span>1. banner-2</span> 
-                    <img src="./dis/images/banner3.jpg" alt=""/>
-                </li>
-                <li>
-                    <span>1. banner-3</span> 
-                    <img src="./dis/images/banner2.jpg" alt=""/>
-                </li>
+            </ul>
+            <ul className="pageStyle">
+                <li className="title">~ List for Pages ~</li>
+                <li className="list-area">{creatImgList(pageStyleList,pageShowNumber.start,pageShowNumber.end)}</li>
+                <li className="pages">{creatPageBtn(pageStyleList,9,setPageShowNumber)}</li>
             </ul>
         </Main>
         <BackgroundCanvas></BackgroundCanvas>
